@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SHIZAZ Enterprise AI — Employees</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#07111f;
+    color:white;
+    min-height:100vh;
+    display:flex;
+}
+
+.sidebar{
+    width:245px;
+    background:#091625;
+    border-right:1px solid #1d3045;
+    padding:25px 15px;
+    position:fixed;
+    height:100vh;
+}
+
+.logo{
+    font-size:21px;
+    font-weight:bold;
+    padding:0 12px 30px;
+}
+
+.logo span{
+    color:#36b9ff;
+}
+
+.menu-title{
+    color:#65788d;
+    font-size:11px;
+    text-transform:uppercase;
+    padding:15px 12px 8px;
+}
+
+.sidebar a{
+    display:block;
+    color:#91a3b6;
+    text-decoration:none;
+    padding:12px;
+    border-radius:8px;
+    margin:3px 0;
+    font-size:14px;
+}
+
+.sidebar a:hover,
+.sidebar a.active{
+    background:#10283c;
+    color:white;
+}
+
+.main{
+    margin-left:245px;
+    width:calc(100% - 245px);
+    padding:30px;
+}
+
+.header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+}
+
+.header h1{
+    font-size:28px;
+}
+
+.header p{
+    color:#8497aa;
+    margin-top:7px;
+}
+
+.add{
+    background:#168cff;
+    color:white;
+    border:0;
+    padding:12px 18px;
+    border-radius:8px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+}
+
+.stat{
+    background:#0c1929;
+    border:1px solid #1e344a;
+    border-radius:13px;
+    padding:20px;
+}
+
+.stat small{
+    color:#8295aa;
+}
+
+.stat h2{
+    margin-top:10px;
+    font-size:27px;
+}
+
+.stat p{
+    color:#54e6a3;
+    font-size:12px;
+    margin-top:7px;
+}
+
+.toolbar{
+    margin-top:20px;
+    display:flex;
+    gap:12px;
+}
+
+.search{
+    flex:1;
+    background:#0c1929;
+    border:1px solid #29445d;
+    border-radius:8px;
+    padding:13px;
+    color:white;
+    outline:none;
+}
+
+select{
+    background:#0c1929;
+    color:#b9c7d6;
+    border:1px solid #29445d;
+    border-radius:8px;
+    padding:13px;
+}
+
+.table{
+    margin-top:20px;
+    background:#0c1929;
+    border:1px solid #1e344a;
+    border-radius:13px;
+    overflow:hidden;
+}
+
+.row{
+    display:grid;
+    grid-template-columns:2fr 1.4fr 1.2fr 1fr 1fr;
+    align-items:center;
+    padding:17px 20px;
+    border-bottom:1px solid #1b2d40;
+    font-size:13px;
+}
+
+.row:first-child{
+    color:#71869b;
+    font-size:11px;
+    text-transform:uppercase;
+}
+
+.person{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.avatar{
+    width:38px;
+    height:38px;
+    border-radius:50%;
+    background:#15334d;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#55c5ff;
+    font-weight:bold;
+}
+
+.person strong{
+    display:block;
+    margin-bottom:4px;
+}
+
+.person small{
+    color:#71869b;
+}
+
+.active-status{
+    color:#54e6a3;
+}
+
+.leave{
+    color:#f3c969;
+}
+
+.ai-box{
+    margin-top:20px;
+    background:#0c1d31;
+    border:1px solid #214b6b;
+    border-radius:13px;
+    padding:23px;
+}
+
+.ai-box h2{
+    color:#54c7ff;
+    margin-bottom:10px;
+}
+
+.ai-box p{
+    color:#98aabc;
+    line-height:1.6;
+}
+
+@media(max-width:1000px){
+
+    .stats{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .row{
+        grid-template-columns:2fr 1fr 1fr;
+        gap:10px;
+    }
+
+    .row div:nth-child(4),
+    .row div:nth-child(5){
+        display:none;
+    }
+}
+
+@media(max-width:700px){
+
+    .sidebar{
+        width:70px;
+        padding:20px 8px;
+    }
+
+    .logo{
+        font-size:0;
+        text-align:center;
+    }
+
+    .logo span{
+        font-size:18px;
+    }
+
+    .sidebar a{
+        font-size:0;
+        text-align:center;
+    }
+
+    .main{
+        margin-left:70px;
+        width:calc(100% - 70px);
+        padding:20px;
+    }
+
+    .header{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:15px;
+    }
+
+    .stats{
+        grid-template-columns:1fr;
+    }
+
+    .toolbar{
+        flex-direction:column;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<aside class="sidebar">
+
+<div class="logo">
+SHIZAZ <span>AI</span>
+</div>
+
+<div class="menu-title">Main</div>
+
+<a href="dashboard.html">📊 Dashboard</a>
+<a href="ai.html">🤖 AI Assistant</a>
+<a href="analytics.html">📈 Analytics</a>
+
+<div class="menu-title">Management</div>
+
+<a class="active" href="employees.html">👥 Employees</a>
+<a href="#">📁 Projects</a>
+<a href="#">🤝 CRM</a>
+<a href="#">💰 Finance</a>
+
+<div class="menu-title">Enterprise</div>
+
+<a href="#">🔐 Security</a>
+<a href="#">📋 Reports</a>
+<a href="#">⚙️ Settings</a>
+
+</aside>
+
+
+<main class="main">
+
+<div class="header">
+
+<div>
+<h1>Employee Management</h1>
+<p>Manage your enterprise workforce from one place.</p>
+</div>
+
+<button class="add">
++ Add Employee
+</button>
+
+</div>
+
+
+<div class="stats">
+
+<div class="stat">
+<small>Total Employees</small>
+<h2>3,842</h2>
+<p>↑ 6.2% this year</p>
+</div>
+
+<div class="stat">
+<small>Active Today</small>
+<h2>3,421</h2>
+<p>89.0% active</p>
+</div>
+
+<div class="stat">
+<small>Departments</small>
+<h2>24</h2>
+<p>Across enterprise</p>
+</div>
+
+<div class="stat">
+<small>New Hires</small>
+<h2>186</h2>
+<p>↑ 12.4% this quarter</p>
+</div>
+
+</div>
+
+
+<div class="toolbar">
+
+<input
+class="search"
+type="text"
+id="search"
+placeholder="Search employees..."
+>
+
+<select id="department">
+
+<option value="all">All Departments</option>
+<option value="Finance">Finance</option>
+<option value="Sales">Sales</option>
+<option value="Technology">Technology</option>
+<option value="Operations">Operations</option>
+
+</select>
+
+</div>
+
+
+<div class="table" id="employeeTable">
+
+<div class="row">
+<div>Employee</div>
+<div>Department</div>
+<div>Role</div>
+<div>Status</div>
+<div>Location</div>
+</div>
+
+
+<div class="row employee">
+
+<div class="person">
+
+<div class="avatar">JD</div>
+
+<div>
+<strong>James Davis</strong>
+<small>EMP-10482</small>
+</div>
+
+</div>
+
+<div>Finance</div>
+<div>Director</div>
+<div class="active-status">Active</div>
+<div>New York</div>
+
+</div>
+
+
+<div class="row employee">
+
+<div class="person">
+
+<div class="avatar">SM</div>
+
+<div>
+<strong>Sarah Miller</strong>
+<small>EMP-10371</small>
+</div>
+
+</div>
+
+<div>Technology</div>
+<div>VP Engineering</div>
+<div class="active-status">Active</div>
+<div>San Francisco</div>
+
+</div>
+
+
+<div class="row employee">
+
+<div class="person">
+
+<div class="avatar">RW</div>
+
+<div>
+<strong>Robert Wilson</strong>
+<small>EMP-10248</small>
+</div>
+
+</div>
+
+<div>Operations</div>
+<div>Manager</div>
+<div class="active-status">Active</div>
+<div>Chicago</div>
+
+</div>
+
+
+<div class="row employee">
+
+<div class="person">
+
+<div class="avatar">EM</div>
+
+<div>
+<strong>Emily Morgan</strong>
+<small>EMP-10821</small>
+</div>
+
+</div>
+
+<div>Sales</div>
+<div>Senior Manager</div>
+<div class="leave">On Leave</div>
+<div>Boston</div>
+
+</div>
+
+
+<div class="row employee">
+
+<div class="person">
+
+<div class="avatar">DL</div>
+
+<div>
+<strong>Daniel Lee</strong>
+<small>EMP-10942</small>
+</div>
+
+</div>
+
+<div>Technology</div>
+<div>Software Engineer</div>
+<div class="active-status">Active</div>
+<div>Austin</div>
+
+</div>
+
+</div>
+
+
+<div class="ai-box">
+
+<h2>🤖 AI Workforce Insight</h2>
+
+<p>
+SHIZAZ AI detected strong workforce growth this quarter.
+Technology and Sales are currently experiencing the highest
+hiring activity. Workforce utilization remains within the
+recommended enterprise range.
+</p>
+
+</div>
+
+</main>
+
+
+<script>
+
+const search = document.getElementById("search");
+const department = document.getElementById("department");
+const employees = document.querySelectorAll(".employee");
+
+function filterEmployees(){
+
+    const searchText = search.value.toLowerCase();
+    const dept = department.value;
+
+    employees.forEach(function(row){
+
+        const text = row.innerText.toLowerCase();
+
+        const matchesSearch =
+            text.includes(searchText);
+
+        const matchesDepartment =
+            dept === "all" ||
+            text.includes(dept.toLowerCase());
+
+        if(matchesSearch && matchesDepartment){
+            row.style.display = "grid";
+        }else{
+            row.style.display = "none";
+        }
+
+    });
+
+}
+
+search.addEventListener("input",filterEmployees);
+department.addEventListener("change",filterEmployees);
+
+</script>
+
+</body>
+</html>

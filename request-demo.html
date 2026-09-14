@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Request Enterprise Demo | SHIZAZ AI</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#07111f;
+    color:white;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:25px;
+}
+
+.container{
+    width:100%;
+    max-width:700px;
+}
+
+.logo{
+    text-align:center;
+    font-size:28px;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+.logo span{
+    color:#4f9cff;
+}
+
+.subtitle{
+    text-align:center;
+    color:#94a3b8;
+    margin-bottom:30px;
+}
+
+.card{
+    background:#0d1b2d;
+    border:1px solid #1d3552;
+    border-radius:18px;
+    padding:30px;
+    box-shadow:0 20px 50px rgba(0,0,0,.35);
+}
+
+h1{
+    font-size:26px;
+    margin-bottom:10px;
+}
+
+.description{
+    color:#94a3b8;
+    margin-bottom:25px;
+    line-height:1.6;
+}
+
+label{
+    display:block;
+    margin:16px 0 7px;
+    font-size:14px;
+    color:#cbd5e1;
+}
+
+input,
+select,
+textarea{
+    width:100%;
+    padding:14px;
+    background:#07111f;
+    border:1px solid #29415e;
+    border-radius:10px;
+    color:white;
+    outline:none;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+    border-color:#3b9cff;
+}
+
+textarea{
+    min-height:120px;
+    resize:vertical;
+}
+
+button{
+    width:100%;
+    margin-top:24px;
+    padding:15px;
+    border:none;
+    border-radius:10px;
+    background:#2563eb;
+    color:white;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#1d4ed8;
+}
+
+.back{
+    display:block;
+    text-align:center;
+    margin-top:20px;
+    color:#60a5fa;
+    text-decoration:none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="logo">
+        SHIZAZ <span>AI</span>
+    </div>
+
+    <div class="subtitle">
+        Enterprise AI & Business Management Platform
+    </div>
+
+    <div class="card">
+
+        <h1>Request an Enterprise Demo</h1>
+
+        <p class="description">
+            Tell us about your organization and what you want to build.
+            We can prepare a customized enterprise solution.
+        </p>
+
+        <form
+            action="https://formspree.io/f/mzeblyqb"
+            method="POST"
+        >
+
+            <input
+                type="hidden"
+                name="_next"
+                value="https://anmt3878-rgb.github.io/shizaz-enterprise/thank-you.html"
+            >
+
+            <input
+                type="hidden"
+                name="_subject"
+                value="New SHIZAZ Enterprise Demo Request"
+            >
+
+            <label>Full Name</label>
+            <input
+                type="text"
+                name="name"
+                required
+                placeholder="Your full name"
+            >
+
+            <label>Company Name</label>
+            <input
+                type="text"
+                name="company"
+                required
+                placeholder="Company name"
+            >
+
+            <label>Business Email</label>
+            <input
+                type="email"
+                name="email"
+                required
+                placeholder="name@company.com"
+            >
+
+            <label>Company Size</label>
+            <select name="company_size" required>
+                <option value="">Select company size</option>
+                <option>1 - 50 employees</option>
+                <option>51 - 200 employees</option>
+                <option>201 - 1,000 employees</option>
+                <option>1,001 - 10,000 employees</option>
+                <option>10,000+ employees</option>
+            </select>
+
+            <label>What are you interested in?</label>
+            <select name="solution" required>
+                <option value="">Select a solution</option>
+                <option>Enterprise AI Platform</option>
+                <option>Business Management Platform</option>
+                <option>AI Automation</option>
+                <option>CRM & Sales</option>
+                <option>Financial Management</option>
+                <option>Cybersecurity</option>
+                <option>Custom Enterprise Platform</option>
+            </select>
+
+            <label>Project Details</label>
+            <textarea
+                name="project_details"
+                placeholder="Tell us briefly what you need..."
+            ></textarea>
+
+            <button type="submit">
+                Request Enterprise Demo
+            </button>
+
+        </form>
+
+    </div>
+
+    <a href="index.html" class="back">
+        ← Back to SHIZAZ Enterprise AI
+    </a>
+
+</div>
+
+</body>
+</html>

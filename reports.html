@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reports — SHIZAZ Enterprise AI</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#f4f7fb;
+    color:#172033;
+}
+
+.sidebar{
+    position:fixed;
+    left:0;
+    top:0;
+    width:245px;
+    height:100vh;
+    background:#101828;
+    color:white;
+    padding:25px 15px;
+}
+
+.logo{
+    font-size:23px;
+    font-weight:bold;
+    padding:0 15px 30px;
+}
+
+.logo span{
+    color:#6c8cff;
+}
+
+.nav-title{
+    color:#667085;
+    font-size:11px;
+    margin:18px 15px 8px;
+    text-transform:uppercase;
+}
+
+.nav a{
+    display:block;
+    text-decoration:none;
+    color:#b8c1d1;
+    padding:12px 15px;
+    border-radius:8px;
+    margin:3px 0;
+    font-size:14px;
+}
+
+.nav a:hover,
+.nav a.active{
+    background:#1d2939;
+    color:white;
+}
+
+.main{
+    margin-left:245px;
+    padding:30px;
+}
+
+.topbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:30px;
+}
+
+.topbar h1{
+    font-size:28px;
+}
+
+.topbar p{
+    color:#667085;
+    margin-top:6px;
+}
+
+.user{
+    background:white;
+    padding:10px 15px;
+    border-radius:10px;
+    box-shadow:0 2px 10px rgba(0,0,0,.05);
+    font-size:14px;
+}
+
+.actions{
+    display:flex;
+    gap:10px;
+    margin-bottom:25px;
+}
+
+.btn{
+    border:0;
+    padding:11px 17px;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:13px;
+}
+
+.primary{
+    background:#667eea;
+    color:white;
+}
+
+.secondary{
+    background:white;
+    color:#344054;
+    border:1px solid #d0d5dd;
+}
+
+.reports{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+}
+
+.report-card{
+    background:white;
+    border-radius:14px;
+    padding:24px;
+    box-shadow:0 3px 15px rgba(0,0,0,.05);
+}
+
+.report-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:18px;
+}
+
+.report-icon{
+    width:45px;
+    height:45px;
+    background:#eef2ff;
+    border-radius:10px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:22px;
+}
+
+.report-card h3{
+    margin-bottom:7px;
+}
+
+.report-card p{
+    color:#667085;
+    font-size:13px;
+    line-height:1.5;
+}
+
+.meta{
+    display:flex;
+    justify-content:space-between;
+    margin-top:20px;
+    padding-top:15px;
+    border-top:1px solid #eaecf0;
+    font-size:12px;
+    color:#667085;
+}
+
+.status{
+    color:#027a48;
+    background:#ecfdf3;
+    padding:5px 9px;
+    border-radius:20px;
+}
+
+.ai-panel{
+    margin-top:20px;
+    background:#101828;
+    color:white;
+    border-radius:14px;
+    padding:25px;
+}
+
+.ai-panel h3{
+    color:#9dafff;
+    margin-bottom:12px;
+}
+
+.ai-panel p{
+    color:#d0d5dd;
+    font-size:14px;
+    line-height:1.6;
+}
+
+.ai-button{
+    margin-top:18px;
+    background:#667eea;
+    color:white;
+    border:0;
+    padding:11px 17px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.mobile-menu{
+    display:none;
+}
+
+@media(max-width:800px){
+
+    .sidebar{
+        display:none;
+    }
+
+    .main{
+        margin-left:0;
+        padding:18px;
+    }
+
+    .mobile-menu{
+        display:block;
+        margin-bottom:20px;
+    }
+
+    .mobile-menu button{
+        border:0;
+        background:#101828;
+        color:white;
+        padding:10px 14px;
+        border-radius:8px;
+    }
+
+    .reports{
+        grid-template-columns:1fr;
+    }
+
+    .user{
+        display:none;
+    }
+
+    .actions{
+        flex-wrap:wrap;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="sidebar">
+
+    <div class="logo">
+        SHIZAZ <span>Enterprise AI</span>
+    </div>
+
+    <div class="nav-title">Main</div>
+
+    <div class="nav">
+        <a href="dashboard.html">Overview</a>
+        <a href="ai.html">AI Assistant</a>
+        <a href="analytics.html">Analytics</a>
+    </div>
+
+    <div class="nav-title">Management</div>
+
+    <div class="nav">
+        <a href="employees.html">Employees</a>
+        <a href="projects.html">Projects</a>
+        <a href="crm.html">CRM</a>
+        <a href="finance.html">Finance</a>
+    </div>
+
+    <div class="nav-title">System</div>
+
+    <div class="nav">
+        <a href="security.html">Security</a>
+        <a href="reports.html" class="active">Reports</a>
+        <a href="settings.html">Settings</a>
+    </div>
+
+</div>
+
+
+<div class="main">
+
+    <div class="mobile-menu">
+        <button>☰ SHIZAZ Enterprise</button>
+    </div>
+
+
+    <div class="topbar">
+
+        <div>
+            <h1>Enterprise Reports</h1>
+            <p>Business intelligence, operational and executive reports.</p>
+        </div>
+
+        <div class="user">
+            Enterprise Administrator
+        </div>
+
+    </div>
+
+
+    <div class="actions">
+
+        <button class="btn primary" onclick="generateReport()">
+            + Generate Report
+        </button>
+
+        <button class="btn secondary" onclick="downloadReport()">
+            Export Report
+        </button>
+
+    </div>
+
+
+    <div class="reports">
+
+        <div class="report-card">
+
+            <div class="report-header">
+
+                <div class="report-icon">
+                    📊
+                </div>
+
+                <span class="status">Ready</span>
+
+            </div>
+
+            <h3>Executive Performance Report</h3>
+
+            <p>
+                Complete overview of revenue, profitability,
+                workforce performance and enterprise growth.
+            </p>
+
+            <div class="meta">
+                <span>Updated: Today</span>
+                <span>PDF</span>
+            </div>
+
+        </div>
+
+
+        <div class="report-card">
+
+            <div class="report-header">
+
+                <div class="report-icon">
+                    💰
+                </div>
+
+                <span class="status">Ready</span>
+
+            </div>
+
+            <h3>Financial Report</h3>
+
+            <p>
+                Revenue, expenses, cash flow, profit margins
+                and financial performance analysis.
+            </p>
+
+            <div class="meta">
+                <span>Updated: Today</span>
+                <span>PDF</span>
+            </div>
+
+        </div>
+
+
+        <div class="report-card">
+
+            <div class="report-header">
+
+                <div class="report-icon">
+                    👥
+                </div>
+
+                <span class="status">Ready</span>
+
+            </div>
+
+            <h3>Workforce Report</h3>
+
+            <p>
+                Employee statistics, department performance,
+                productivity and workforce insights.
+            </p>
+
+            <div class="meta">
+                <span>Updated: Yesterday</span>
+                <span>PDF</span>
+            </div>
+
+        </div>
+
+
+        <div class="report-card">
+
+            <div class="report-header">
+
+                <div class="report-icon">
+                    🛡️
+                </div>
+
+                <span class="status">Ready</span>
+
+            </div>
+
+            <h3>Security Report</h3>
+
+            <p>
+                Threat activity, security score, vulnerabilities,
+                risks and enterprise protection status.
+            </p>
+
+            <div class="meta">
+                <span>Updated: Today</span>
+                <span>PDF</span>
+            </div>
+
+        </div>
+
+
+        <div class="report-card">
+
+            <div class="report-header">
+
+                <div class="report-icon">
+                    📈
+                </div>
+
+                <span class="status">Ready</span>
+
+            </div>
+
+            <h3>Sales & CRM Report</h3>
+
+            <p>
+                Customer pipeline, opportunities, conversion rates
+                and sales performance.
+            </p>
+
+            <div class="meta">
+                <span>Updated: Today</span>
+                <span>PDF</span>
+            </div>
+
+        </div>
+
+
+        <div class="report-card">
+
+            <div class="report-header">
+
+                <div class="report-icon">
+                    🤖
+                </div>
+
+                <span class="status">AI</span>
+
+            </div>
+
+            <h3>AI Intelligence Report</h3>
+
+            <p>
+                AI-generated business insights, predictions,
+                recommendations and detected risks.
+            </p>
+
+            <div class="meta">
+                <span>AI Generated</span>
+                <span>Report</span>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="ai-panel">
+
+        <h3>✦ SHIZAZ AI Report Intelligence</h3>
+
+        <p>
+            AI analyzed the enterprise data and identified
+            strong revenue growth, improving workforce efficiency,
+            low security risk and a healthy financial position.
+            The system recommends continuing the current growth
+            strategy while monitoring operating costs.
+        </p>
+
+        <button class="ai-button" onclick="runAIReport()">
+            Generate AI Executive Summary
+        </button>
+
+    </div>
+
+</div>
+
+
+<script>
+
+function generateReport(){
+
+    alert(
+        "Report Generator Ready\\n\\n" +
+        "Select a report category to generate a detailed enterprise report."
+    );
+
+}
+
+function downloadReport(){
+
+    alert(
+        "Export Center\\n\\n" +
+        "Demo export system is ready.\\n" +
+        "PDF / Excel / CSV export can be connected in the production version."
+    );
+
+}
+
+function runAIReport(){
+
+    alert(
+        "AI Executive Summary\\n\\n" +
+        "Revenue Growth: +18.4%\\n" +
+        "Net Profit: $16.2M\\n" +
+        "Security Score: 94/100\\n" +
+        "Workforce: 3,842 employees\\n" +
+        "Overall Risk: LOW\\n\\n" +
+        "AI Recommendation: Maintain growth strategy and monitor operating costs."
+    );
+
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Thank You | SHIZAZ Enterprise AI</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background:#07111f;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:25px;
+}
+
+.container{
+    width:100%;
+    max-width:760px;
+    text-align:center;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:bold;
+    letter-spacing:1px;
+    margin-bottom:45px;
+}
+
+.logo span{
+    color:#36b9ff;
+}
+
+.card{
+    background:#0c1929;
+    border:1px solid #20384f;
+    border-radius:22px;
+    padding:55px 35px;
+    box-shadow:0 25px 80px rgba(0,0,0,.45);
+}
+
+.success-icon{
+    width:78px;
+    height:78px;
+    margin:0 auto 25px;
+    border-radius:50%;
+    background:#123c31;
+    border:1px solid #2ed49a;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#4ee7ad;
+    font-size:38px;
+}
+
+h1{
+    font-size:42px;
+    margin-bottom:18px;
+}
+
+h1 span{
+    color:#38baff;
+}
+
+.message{
+    color:#9fb0c3;
+    font-size:17px;
+    line-height:1.7;
+    max-width:600px;
+    margin:0 auto 35px;
+}
+
+.status{
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+    padding:10px 16px;
+    border-radius:30px;
+    background:#0b2432;
+    border:1px solid #1f5268;
+    color:#69d9ff;
+    font-size:14px;
+    margin-bottom:35px;
+}
+
+.dot{
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:#42e0a4;
+}
+
+.buttons{
+    display:flex;
+    justify-content:center;
+    gap:14px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    display:inline-block;
+    padding:14px 24px;
+    border-radius:9px;
+    text-decoration:none;
+    font-weight:bold;
+    transition:.2s;
+}
+
+.primary{
+    background:#168cff;
+    color:white;
+}
+
+.primary:hover{
+    background:#0879e8;
+}
+
+.secondary{
+    border:1px solid #31506b;
+    color:white;
+}
+
+.secondary:hover{
+    background:#10263b;
+}
+
+.whatsapp{
+    background:#25D366;
+    color:white;
+}
+
+.whatsapp:hover{
+    background:#1ebe5d;
+}
+
+.footer{
+    margin-top:30px;
+    color:#64778d;
+    font-size:13px;
+}
+
+@media(max-width:600px){
+
+    .card{
+        padding:45px 22px;
+    }
+
+    h1{
+        font-size:32px;
+    }
+
+    .message{
+        font-size:15px;
+    }
+
+    .logo{
+        margin-bottom:30px;
+    }
+
+    .buttons{
+        flex-direction:column;
+    }
+
+    .btn{
+        width:100%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="logo">
+        SHIZAZ <span>Enterprise AI</span>
+    </div>
+
+    <div class="card">
+
+        <div class="success-icon">
+            ✓
+        </div>
+
+        <div class="status">
+            <span class="dot"></span>
+            Request Successfully Submitted
+        </div>
+
+        <h1>
+            Thank You for <span>Contacting Us.</span>
+        </h1>
+
+        <p class="message">
+            Your enterprise demo request has been received.
+            We appreciate your interest in SHIZAZ Enterprise AI.
+            Our team will review your requirements and follow up
+            with you regarding the next steps.
+        </p>
+
+        <div class="buttons">
+
+            <a href="index.html" class="btn primary">
+                Back to SHIZAZ AI
+            </a>
+
+            <a href="dashboard.html" class="btn secondary">
+                Explore Platform
+            </a>
+
+            <a href="https://wa.me/93789155454"
+               target="_blank"
+               class="btn whatsapp">
+                💬 Contact Us on WhatsApp
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="footer">
+        © 2026 SHIZAZ Enterprise AI. All rights reserved.
+    </div>
+
+</div>
+
+</body>
+</html>

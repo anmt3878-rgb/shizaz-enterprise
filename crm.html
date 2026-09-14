@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SHIZAZ Enterprise AI — CRM</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#07111f;
+    color:white;
+    min-height:100vh;
+    display:flex;
+}
+
+.sidebar{
+    width:245px;
+    background:#091625;
+    border-right:1px solid #1d3045;
+    padding:25px 15px;
+    position:fixed;
+    height:100vh;
+}
+
+.logo{
+    font-size:21px;
+    font-weight:bold;
+    padding:0 12px 30px;
+}
+
+.logo span{
+    color:#36b9ff;
+}
+
+.menu-title{
+    color:#65788d;
+    font-size:11px;
+    text-transform:uppercase;
+    padding:15px 12px 8px;
+}
+
+.sidebar a{
+    display:block;
+    color:#91a3b6;
+    text-decoration:none;
+    padding:12px;
+    border-radius:8px;
+    margin:3px 0;
+    font-size:14px;
+}
+
+.sidebar a:hover,
+.sidebar a.active{
+    background:#10283c;
+    color:white;
+}
+
+.main{
+    margin-left:245px;
+    width:calc(100% - 245px);
+    padding:30px;
+}
+
+.header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+}
+
+.header h1{
+    font-size:28px;
+}
+
+.header p{
+    color:#8497aa;
+    margin-top:7px;
+}
+
+.add{
+    background:#168cff;
+    color:white;
+    border:0;
+    padding:12px 18px;
+    border-radius:8px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+}
+
+.stat{
+    background:#0c1929;
+    border:1px solid #1e344a;
+    border-radius:13px;
+    padding:20px;
+}
+
+.stat small{
+    color:#8295aa;
+}
+
+.stat h2{
+    margin-top:10px;
+    font-size:27px;
+}
+
+.green{
+    color:#54e6a3;
+}
+
+.stat p{
+    font-size:12px;
+    margin-top:7px;
+}
+
+.toolbar{
+    display:flex;
+    gap:12px;
+    margin-top:20px;
+}
+
+.search{
+    flex:1;
+    background:#0c1929;
+    border:1px solid #29445d;
+    border-radius:8px;
+    padding:13px;
+    color:white;
+    outline:none;
+}
+
+select{
+    background:#0c1929;
+    color:#b9c7d6;
+    border:1px solid #29445d;
+    border-radius:8px;
+    padding:13px;
+}
+
+.table{
+    margin-top:20px;
+    background:#0c1929;
+    border:1px solid #1e344a;
+    border-radius:13px;
+    overflow:hidden;
+}
+
+.row{
+    display:grid;
+    grid-template-columns:2fr 1.5fr 1.2fr 1fr 1fr;
+    align-items:center;
+    padding:17px 20px;
+    border-bottom:1px solid #1b2d40;
+    font-size:13px;
+}
+
+.row:first-child{
+    color:#71869b;
+    font-size:11px;
+    text-transform:uppercase;
+}
+
+.company{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.avatar{
+    width:38px;
+    height:38px;
+    border-radius:9px;
+    background:#15334d;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#55c5ff;
+    font-weight:bold;
+}
+
+.company strong{
+    display:block;
+    margin-bottom:4px;
+}
+
+.company small{
+    color:#71869b;
+}
+
+.badge{
+    display:inline-block;
+    padding:6px 9px;
+    border-radius:20px;
+    font-size:11px;
+}
+
+.prospect{
+    background:#302a12;
+    color:#f3c969;
+}
+
+.qualified{
+    background:#10352b;
+    color:#54e6a3;
+}
+
+.negotiation{
+    background:#102f48;
+    color:#55c5ff;
+}
+
+.closed{
+    background:#24303c;
+    color:#a9b7c6;
+}
+
+.pipeline{
+    margin-top:20px;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
+
+.stage{
+    background:#0c1929;
+    border:1px solid #1e344a;
+    border-radius:12px;
+    padding:18px;
+}
+
+.stage h3{
+    font-size:14px;
+    margin-bottom:12px;
+}
+
+.stage strong{
+    font-size:24px;
+}
+
+.stage p{
+    color:#7e91a5;
+    font-size:12px;
+    margin-top:6px;
+}
+
+.ai{
+    margin-top:20px;
+    background:#0c1d31;
+    border:1px solid #214b6b;
+    border-radius:13px;
+    padding:24px;
+}
+
+.ai h2{
+    color:#54c7ff;
+    margin-bottom:10px;
+}
+
+.ai p{
+    color:#98aabc;
+    line-height:1.6;
+}
+
+@media(max-width:1000px){
+
+    .stats{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .pipeline{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .row{
+        grid-template-columns:2fr 1fr 1fr;
+    }
+
+    .row div:nth-child(4),
+    .row div:nth-child(5){
+        display:none;
+    }
+}
+
+@media(max-width:700px){
+
+    .sidebar{
+        width:70px;
+        padding:20px 8px;
+    }
+
+    .logo{
+        font-size:0;
+        text-align:center;
+    }
+
+    .logo span{
+        font-size:18px;
+    }
+
+    .sidebar a{
+        font-size:0;
+        text-align:center;
+    }
+
+    .main{
+        margin-left:70px;
+        width:calc(100% - 70px);
+        padding:20px;
+    }
+
+    .header{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:15px;
+    }
+
+    .stats{
+        grid-template-columns:1fr;
+    }
+
+    .pipeline{
+        grid-template-columns:1fr;
+    }
+
+    .toolbar{
+        flex-direction:column;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<aside class="sidebar">
+
+<div class="logo">
+SHIZAZ <span>AI</span>
+</div>
+
+<div class="menu-title">Main</div>
+
+<a href="dashboard.html">📊 Dashboard</a>
+<a href="ai.html">🤖 AI Assistant</a>
+<a href="analytics.html">📈 Analytics</a>
+
+<div class="menu-title">Management</div>
+
+<a href="employees.html">👥 Employees</a>
+<a href="projects.html">📁 Projects</a>
+<a class="active" href="crm.html">🤝 CRM</a>
+<a href="#">💰 Finance</a>
+
+<div class="menu-title">Enterprise</div>
+
+<a href="#">🔐 Security</a>
+<a href="#">📋 Reports</a>
+<a href="#">⚙️ Settings</a>
+
+</aside>
+
+
+<main class="main">
+
+<div class="header">
+
+<div>
+
+<h1>Customer Relationship Management</h1>
+
+<p>
+Manage enterprise customers, opportunities and sales pipeline.
+</p>
+
+</div>
+
+<button class="add" onclick="newCustomer()">
++ Add Customer
+</button>
+
+</div>
+
+
+<div class="stats">
+
+<div class="stat">
+
+<small>Total Customers</small>
+
+<h2>2,486</h2>
+
+<p class="green">↑ 14.2% this year</p>
+
+</div>
+
+
+<div class="stat">
+
+<small>Active Opportunities</small>
+
+<h2>384</h2>
+
+<p class="green">↑ 21.8%</p>
+
+</div>
+
+
+<div class="stat">
+
+<small>Pipeline Value</small>
+
+<h2>$42.6M</h2>
+
+<p class="green">↑ 17.4%</p>
+
+</div>
+
+
+<div class="stat">
+
+<small>Conversion Rate</small>
+
+<h2>28.6%</h2>
+
+<p class="green">↑ 4.8%</p>
+
+</div>
+
+</div>
+
+
+<div class="toolbar">
+
+<input
+class="search"
+id="search"
+type="text"
+placeholder="Search customers..."
+>
+
+<select id="status">
+
+<option value="all">All Status</option>
+<option value="prospect">Prospect</option>
+<option value="qualified">Qualified</option>
+<option value="negotiation">Negotiation</option>
+<option value="closed">Closed</option>
+
+</select>
+
+</div>
+
+
+<div class="table">
+
+<div class="row">
+
+<div>Customer</div>
+<div>Industry</div>
+<div>Opportunity</div>
+<div>Status</div>
+<div>Value</div>
+
+</div>
+
+
+<div class="row customer">
+
+<div class="company">
+
+<div class="avatar">GT</div>
+
+<div>
+<strong>GlobalTech Industries</strong>
+<small>Enterprise Account</small>
+</div>
+
+</div>
+
+<div>Technology</div>
+<div>Enterprise Platform</div>
+<div><span class="badge negotiation">Negotiation</span></div>
+<div>$4.8M</div>
+
+</div>
+
+
+<div class="row customer">
+
+<div class="company">
+
+<div class="avatar">HC</div>
+
+<div>
+<strong>Horizon Capital</strong>
+<small>Enterprise Account</small>
+</div>
+
+</div>
+
+<div>Finance</div>
+<div>AI Automation</div>
+<div><span class="badge qualified">Qualified</span></div>
+<div>$2.4M</div>
+
+</div>
+
+
+<div class="row customer">
+
+<div class="company">
+
+<div class="avatar">MS</div>
+
+<div>
+<strong>Metro Systems</strong>
+<small>Enterprise Account</small>
+</div>
+
+</div>
+
+<div>Infrastructure</div>
+<div>Cloud Platform</div>
+<div><span class="badge prospect">Prospect</span></div>
+<div>$1.8M</div>
+
+</div>
+
+
+<div class="row customer">
+
+<div class="company">
+
+<div class="avatar">AP</div>
+
+<div>
+<strong>Atlas Partners</strong>
+<small>Enterprise Account</small>
+</div>
+
+</div>
+
+<div>Consulting</div>
+<div>Security Platform</div>
+<div><span class="badge closed">Closed</span></div>
+<div>$3.2M</div>
+
+</div>
+
+
+<div class="row customer">
+
+<div class="company">
+
+<div class="avatar">NR</div>
+
+<div>
+<strong>Northstar Retail</strong>
+<small>Enterprise Account</small>
+</div>
+
+</div>
+
+<div>Retail</div>
+<div>AI Operations</div>
+<div><span class="badge qualified">Qualified</span></div>
+<div>$1.2M</div>
+
+</div>
+
+</div>
+
+
+<div class="pipeline">
+
+<div class="stage">
+
+<h3>Prospects</h3>
+
+<strong>126</strong>
+
+<p>$8.4M potential</p>
+
+</div>
+
+
+<div class="stage">
+
+<h3>Qualified</h3>
+
+<strong>98</strong>
+
+<p>$12.7M potential</p>
+
+</div>
+
+
+<div class="stage">
+
+<h3>Negotiation</h3>
+
+<strong>47</strong>
+
+<p>$16.3M potential</p>
+
+</div>
+
+
+<div class="stage">
+
+<h3>Closed</h3>
+
+<strong>113</strong>
+
+<p>$5.2M won</p>
+
+</div>
+
+</div>
+
+
+<div class="ai">
+
+<h2>🤖 AI Sales Intelligence</h2>
+
+<p>
+SHIZAZ AI identifies GlobalTech Industries as the highest-value
+active opportunity. The current enterprise pipeline is valued at
+$42.6M. Based on current conversion trends, qualified opportunities
+represent the strongest near-term revenue potential.
+</p>
+
+</div>
+
+</main>
+
+
+<script>
+
+const search = document.getElementById("search");
+const status = document.getElementById("status");
+const customers = document.querySelectorAll(".customer");
+
+function filterCustomers(){
+
+    const text = search.value.toLowerCase();
+    const selected = status.value;
+
+    customers.forEach(function(row){
+
+        const content = row.innerText.toLowerCase();
+
+        const matchText =
+            content.includes(text);
+
+        const matchStatus =
+            selected === "all" ||
+            content.includes(selected);
+
+        row.style.display =
+            matchText && matchStatus
+            ? "grid"
+            : "none";
+
+    });
+
+}
+
+search.addEventListener("input",filterCustomers);
+status.addEventListener("change",filterCustomers);
+
+function newCustomer(){
+
+    alert(
+        "New Customer module is ready for the next version."
+    );
+
+}
+
+</script>
+
+</body>
+</html>
