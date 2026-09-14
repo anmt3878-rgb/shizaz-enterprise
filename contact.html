@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Contact | SHIZAZ Enterprise AI</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#050810;
+    color:#fff;
+    line-height:1.6;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+.container{
+    width:90%;
+    max-width:1150px;
+    margin:auto;
+}
+
+/* NAVBAR */
+
+header{
+    position:sticky;
+    top:0;
+    z-index:100;
+    background:rgba(5,8,16,.95);
+    border-bottom:1px solid #172033;
+}
+
+.navbar{
+    height:75px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:22px;
+    font-weight:800;
+}
+
+.logo span{
+    color:#42a5ff;
+}
+
+.nav{
+    display:flex;
+    gap:24px;
+    align-items:center;
+}
+
+.nav a{
+    color:#9daabd;
+    font-size:14px;
+}
+
+.nav a:hover{
+    color:#fff;
+}
+
+.demo{
+    background:#1677ff;
+    color:#fff !important;
+    padding:10px 17px;
+    border-radius:8px;
+}
+
+/* HERO */
+
+.hero{
+    text-align:center;
+    padding:95px 20px 65px;
+    background:
+    radial-gradient(circle at center,rgba(23,119,255,.18),transparent 48%);
+}
+
+.badge{
+    display:inline-block;
+    color:#5eb1ff;
+    border:1px solid #26496e;
+    background:#091522;
+    padding:7px 14px;
+    border-radius:30px;
+    font-size:12px;
+    margin-bottom:24px;
+}
+
+.hero h1{
+    max-width:850px;
+    margin:auto;
+    font-size:clamp(42px,7vw,66px);
+    line-height:1.05;
+    letter-spacing:-2px;
+}
+
+.hero h1 span{
+    color:#3da0ff;
+}
+
+.hero p{
+    max-width:700px;
+    margin:24px auto 0;
+    color:#9ba8bb;
+    font-size:18px;
+}
+
+/* CONTACT */
+
+section{
+    padding:75px 0;
+}
+
+.contact-grid{
+    display:grid;
+    grid-template-columns:1fr 1.2fr;
+    gap:25px;
+}
+
+/* INFO */
+
+.info{
+    background:#090f19;
+    border:1px solid #1b293b;
+    border-radius:15px;
+    padding:30px;
+}
+
+.info h2{
+    font-size:28px;
+    margin-bottom:12px;
+}
+
+.info > p{
+    color:#8e9bad;
+    font-size:14px;
+    margin-bottom:28px;
+}
+
+.info-card{
+    background:#0d1522;
+    border:1px solid #1a293b;
+    border-radius:10px;
+    padding:17px;
+    margin-bottom:12px;
+}
+
+.info-card strong{
+    display:block;
+    margin-bottom:4px;
+}
+
+.info-card span{
+    color:#8d9aac;
+    font-size:13px;
+}
+
+/* FORM */
+
+.form-box{
+    background:#090f19;
+    border:1px solid #1b293b;
+    border-radius:15px;
+    padding:30px;
+}
+
+.form-box h2{
+    font-size:28px;
+    margin-bottom:8px;
+}
+
+.form-box > p{
+    color:#8e9bad;
+    font-size:14px;
+    margin-bottom:25px;
+}
+
+.form-group{
+    margin-bottom:17px;
+}
+
+label{
+    display:block;
+    margin-bottom:7px;
+    font-size:13px;
+    color:#c1ccda;
+}
+
+input,
+select,
+textarea{
+    width:100%;
+    padding:13px;
+    border-radius:8px;
+    border:1px solid #26364a;
+    background:#070d16;
+    color:#fff;
+    outline:none;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+    border-color:#2585ff;
+}
+
+textarea{
+    min-height:130px;
+    resize:vertical;
+}
+
+.submit{
+    width:100%;
+    border:0;
+    background:#1677ff;
+    color:#fff;
+    padding:14px;
+    border-radius:8px;
+    font-size:15px;
+    font-weight:700;
+    cursor:pointer;
+}
+
+.submit:hover{
+    background:#2585ff;
+}
+
+/* WHATSAPP */
+
+.whatsapp{
+    display:block;
+    text-align:center;
+    margin-top:12px;
+    padding:13px;
+    border:1px solid #26364a;
+    border-radius:8px;
+    color:#b8c4d4;
+    font-weight:600;
+}
+
+.whatsapp:hover{
+    background:#101a28;
+}
+
+/* FAQ */
+
+.faq{
+    background:#070c15;
+}
+
+.section-title{
+    text-align:center;
+    max-width:700px;
+    margin:auto;
+}
+
+.section-title h2{
+    font-size:38px;
+    margin-bottom:12px;
+}
+
+.section-title p{
+    color:#8e9bad;
+}
+
+.faq-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+    margin-top:45px;
+}
+
+.faq-card{
+    background:#090f19;
+    border:1px solid #1b293b;
+    border-radius:12px;
+    padding:23px;
+}
+
+.faq-card h3{
+    font-size:17px;
+    margin-bottom:8px;
+}
+
+.faq-card p{
+    color:#8996a8;
+    font-size:14px;
+}
+
+/* FOOTER */
+
+footer{
+    border-top:1px solid #172033;
+    padding:30px 0;
+    color:#69768a;
+    font-size:13px;
+}
+
+.footer-inner{
+    display:flex;
+    justify-content:space-between;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+/* MOBILE */
+
+@media(max-width:850px){
+
+    .nav{
+        display:none;
+    }
+
+    .contact-grid{
+        grid-template-columns:1fr;
+    }
+
+    .faq-grid{
+        grid-template-columns:1fr;
+    }
+
+    .hero{
+        padding-top:70px;
+    }
+
+    .section-title h2{
+        font-size:31px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="container navbar">
+
+<a href="index.html" class="logo">
+SHIZAZ <span>Enterprise AI</span>
+</a>
+
+<nav class="nav">
+
+<a href="index.html">Home</a>
+
+<a href="index.html#platform">Platform</a>
+
+<a href="solutions.html">Solutions</a>
+
+<a href="about.html">About</a>
+
+<a href="pricing.html">Pricing</a>
+
+<a href="request-demo.html" class="demo">
+Request Demo
+</a>
+
+</nav>
+
+</div>
+
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="container">
+
+<div class="badge">
+CONTACT SHIZAZ ENTERPRISE AI
+</div>
+
+<h1>
+Let's Talk About Your
+<span>Enterprise</span>
+</h1>
+
+<p>
+Tell us about your organization, business challenges and
+technology requirements. Our enterprise demo process starts
+with understanding your needs.
+</p>
+
+</div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section>
+
+<div class="container">
+
+<div class="contact-grid">
+
+
+<!-- INFORMATION -->
+
+<div class="info">
+
+<h2>
+Let's Start a Conversation
+</h2>
+
+<p>
+Whether you are exploring AI automation, enterprise analytics,
+CRM, finance, workforce management or cybersecurity, you can
+request a platform demonstration.
+</p>
+
+
+<div class="info-card">
+
+<strong>Enterprise Demo</strong>
+
+<span>
+Request a private demonstration of the platform.
+</span>
+
+</div>
+
+
+<div class="info-card">
+
+<strong>Custom Solutions</strong>
+
+<span>
+Discuss custom workflows, integrations and enterprise requirements.
+</span>
+
+</div>
+
+
+<div class="info-card">
+
+<strong>WhatsApp</strong>
+
+<span>
+Chat with us directly for quick questions.
+</span>
+
+</div>
+
+
+<a
+href="https://wa.me/93789155454"
+class="whatsapp"
+>
+Chat on WhatsApp
+</a>
+
+</div>
+
+
+<!-- FORM -->
+
+<div class="form-box">
+
+<h2>
+Contact Our Team
+</h2>
+
+<p>
+Complete the form and tell us what your organization needs.
+</p>
+
+
+<form
+action="https://formspree.io/f/mzeblyqb"
+method="POST"
+>
+
+<input
+type="hidden"
+name="_subject"
+value="New SHIZAZ Enterprise Contact"
+>
+
+
+<div class="form-group">
+
+<label>
+Full Name
+</label>
+
+<input
+type="text"
+name="name"
+placeholder="Your full name"
+required
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Company Name
+</label>
+
+<input
+type="text"
+name="company"
+placeholder="Your company"
+required
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Business Email
+</label>
+
+<input
+type="email"
+name="email"
+placeholder="name@company.com"
+required
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Company Size
+</label>
+
+<select
+name="company_size"
+required
+>
+
+<option value="">
+Select company size
+</option>
+
+<option>
+1 - 50 employees
+</option>
+
+<option>
+51 - 250 employees
+</option>
+
+<option>
+251 - 1,000 employees
+</option>
+
+<option>
+1,001 - 5,000 employees
+</option>
+
+<option>
+5,000+ employees
+</option>
+
+</select>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+What are you interested in?
+</label>
+
+<select
+name="solution"
+required
+>
+
+<option value="">
+Select a solution
+</option>
+
+<option>
+AI & Automation
+</option>
+
+<option>
+Business Analytics
+</option>
+
+<option>
+CRM & Sales
+</option>
+
+<option>
+Financial Management
+</option>
+
+<option>
+Workforce Management
+</option>
+
+<option>
+Project Management
+</option>
+
+<option>
+Cybersecurity
+</option>
+
+<option>
+Custom Enterprise Platform
+</option>
+
+</select>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+How can we help?
+</label>
+
+<textarea
+name="message"
+placeholder="Tell us about your project, requirements or business challenge..."
+required
+></textarea>
+
+</div>
+
+
+<button
+type="submit"
+class="submit"
+>
+Send Enterprise Inquiry
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- FAQ -->
+
+<section class="faq">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>
+Frequently Asked Questions
+</h2>
+
+<p>
+A few common questions about the SHIZAZ Enterprise AI platform.
+</p>
+
+</div>
+
+
+<div class="faq-grid">
+
+
+<div class="faq-card">
+
+<h3>
+Can the platform be customized?
+</h3>
+
+<p>
+Yes. Enterprise deployments can be designed around
+specific workflows, integrations, security requirements
+and business processes.
+</p>
+
+</div>
+
+
+<div class="faq-card">
+
+<h3>
+Do you provide a platform demonstration?
+</h3>
+
+<p>
+Yes. Organizations can request an enterprise demonstration
+through the demo request form.
+</p>
+
+</div>
+
+
+<div class="faq-card">
+
+<h3>
+Can SHIZAZ integrate with existing systems?
+</h3>
+
+<p>
+Enterprise integrations can be discussed based on the
+organization's technical requirements and existing systems.
+</p>
+
+</div>
+
+
+<div class="faq-card">
+
+<h3>
+How is enterprise pricing determined?
+</h3>
+
+<p>
+Final pricing depends on scope, organization size,
+customization, integrations, security and implementation
+requirements.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<footer>
+
+<div class="container footer-inner">
+
+<div>
+© 2026 SHIZAZ Enterprise AI. All rights reserved.
+</div>
+
+<div>
+Enterprise Intelligence • AI • Automation
+</div>
+
+</div>
+
+</footer>
+
+</body>
+</html>

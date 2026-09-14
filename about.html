@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>About | SHIZAZ Enterprise AI</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial,Helvetica,sans-serif;
+    background:#050810;
+    color:#fff;
+    line-height:1.6;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+.container{
+    width:90%;
+    max-width:1150px;
+    margin:auto;
+}
+
+/* NAVBAR */
+
+header{
+    border-bottom:1px solid #172033;
+    background:rgba(5,8,16,.95);
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+
+.navbar{
+    height:75px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    font-size:22px;
+    font-weight:800;
+}
+
+.logo span{
+    color:#42a5ff;
+}
+
+.nav{
+    display:flex;
+    gap:25px;
+    align-items:center;
+}
+
+.nav a{
+    color:#9daabd;
+    font-size:14px;
+}
+
+.nav a:hover{
+    color:#fff;
+}
+
+.demo-btn{
+    background:#1677ff;
+    color:#fff !important;
+    padding:10px 17px;
+    border-radius:8px;
+}
+
+/* HERO */
+
+.hero{
+    text-align:center;
+    padding:100px 20px 80px;
+    background:
+    radial-gradient(circle at center,rgba(23,119,255,.18),transparent 45%);
+}
+
+.badge{
+    display:inline-block;
+    border:1px solid #26496e;
+    color:#5eb1ff;
+    padding:7px 14px;
+    border-radius:30px;
+    font-size:12px;
+    margin-bottom:25px;
+}
+
+.hero h1{
+    font-size:clamp(42px,7vw,70px);
+    line-height:1.05;
+    max-width:900px;
+    margin:auto;
+    letter-spacing:-2px;
+}
+
+.hero h1 span{
+    color:#3da0ff;
+}
+
+.hero p{
+    max-width:700px;
+    margin:25px auto 0;
+    color:#9ba8bb;
+    font-size:18px;
+}
+
+/* CONTENT */
+
+section{
+    padding:85px 0;
+}
+
+.section-title{
+    text-align:center;
+    max-width:700px;
+    margin:auto;
+}
+
+.section-title h2{
+    font-size:38px;
+    margin-bottom:15px;
+}
+
+.section-title p{
+    color:#8e9bad;
+}
+
+/* STORY */
+
+.story{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+    margin-top:50px;
+}
+
+.box{
+    background:#090f19;
+    border:1px solid #1b293b;
+    border-radius:15px;
+    padding:30px;
+}
+
+.box h3{
+    font-size:24px;
+    margin-bottom:15px;
+}
+
+.box p{
+    color:#929fb1;
+    font-size:15px;
+}
+
+/* VALUES */
+
+.values{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+    margin-top:45px;
+}
+
+.value{
+    background:#090f19;
+    border:1px solid #1a283a;
+    border-radius:14px;
+    padding:27px;
+}
+
+.icon{
+    width:45px;
+    height:45px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#10253e;
+    border-radius:10px;
+    font-size:21px;
+    margin-bottom:18px;
+}
+
+.value h3{
+    margin-bottom:9px;
+}
+
+.value p{
+    color:#8996a8;
+    font-size:14px;
+}
+
+/* PLATFORM */
+
+.platform{
+    background:#070c15;
+}
+
+.platform-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+    margin-top:45px;
+}
+
+.platform-card{
+    border:1px solid #1b2a3d;
+    background:#0a111c;
+    border-radius:12px;
+    padding:22px;
+}
+
+.platform-card strong{
+    display:block;
+    font-size:18px;
+    margin-bottom:7px;
+}
+
+.platform-card span{
+    color:#8996a8;
+    font-size:13px;
+}
+
+/* CTA */
+
+.cta{
+    text-align:center;
+    padding:90px 20px;
+    background:
+    radial-gradient(circle at center,rgba(23,119,255,.16),transparent 45%);
+}
+
+.cta h2{
+    font-size:42px;
+    max-width:750px;
+    margin:auto;
+}
+
+.cta p{
+    color:#919dae;
+    max-width:600px;
+    margin:18px auto 28px;
+}
+
+.btn{
+    display:inline-block;
+    background:#1677ff;
+    padding:14px 24px;
+    border-radius:9px;
+    font-weight:700;
+}
+
+.btn:hover{
+    background:#2585ff;
+}
+
+/* FOOTER */
+
+footer{
+    border-top:1px solid #172033;
+    padding:30px 0;
+    color:#69768a;
+    font-size:13px;
+}
+
+.footer-inner{
+    display:flex;
+    justify-content:space-between;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+/* MOBILE */
+
+@media(max-width:800px){
+
+    .nav{
+        display:none;
+    }
+
+    .hero{
+        padding-top:70px;
+    }
+
+    .story{
+        grid-template-columns:1fr;
+    }
+
+    .values{
+        grid-template-columns:1fr;
+    }
+
+    .platform-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .section-title h2{
+        font-size:31px;
+    }
+
+    .cta h2{
+        font-size:34px;
+    }
+}
+
+@media(max-width:450px){
+
+    .platform-grid{
+        grid-template-columns:1fr;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+<div class="container navbar">
+
+<a href="index.html" class="logo">
+SHIZAZ <span>Enterprise AI</span>
+</a>
+
+<nav class="nav">
+
+<a href="index.html">Home</a>
+
+<a href="index.html#platform">Platform</a>
+
+<a href="solutions.html">Solutions</a>
+
+<a href="about.html">About</a>
+
+<a href="request-demo.html" class="demo-btn">
+Request Demo
+</a>
+
+</nav>
+
+</div>
+
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="container">
+
+<div class="badge">
+ABOUT SHIZAZ ENTERPRISE AI
+</div>
+
+<h1>
+Building the Future of
+<span>Enterprise Intelligence</span>
+</h1>
+
+<p>
+SHIZAZ Enterprise AI is a technology platform concept designed
+to help modern organizations manage operations, intelligence,
+automation and business performance from one centralized environment.
+</p>
+
+</div>
+
+</section>
+
+
+<!-- STORY -->
+
+<section>
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>
+One Intelligent Enterprise Environment
+</h2>
+
+<p>
+Modern businesses use many disconnected systems.
+SHIZAZ Enterprise AI brings key business functions together.
+</p>
+
+</div>
+
+
+<div class="story">
+
+<div class="box">
+
+<h3>
+Our Vision
+</h3>
+
+<p>
+Our vision is to create a unified enterprise environment where
+business leaders can understand their organization, automate
+workflows and make better decisions using intelligent technology.
+</p>
+
+</div>
+
+
+<div class="box">
+
+<h3>
+Our Approach
+</h3>
+
+<p>
+SHIZAZ combines enterprise management concepts, AI assistance,
+analytics, automation, customer management, financial intelligence
+and cybersecurity into one scalable platform experience.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- VALUES -->
+
+<section class="platform">
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>
+Built Around Enterprise Needs
+</h2>
+
+<p>
+The platform is designed around the areas that matter most
+to growing and established organizations.
+</p>
+
+</div>
+
+
+<div class="values">
+
+<div class="value">
+
+<div class="icon">🤖</div>
+
+<h3>AI First</h3>
+
+<p>
+Use intelligent assistance to analyze information,
+identify opportunities and support business decisions.
+</p>
+
+</div>
+
+
+<div class="value">
+
+<div class="icon">⚡</div>
+
+<h3>Automation</h3>
+
+<p>
+Reduce repetitive work and create more efficient
+business workflows.
+</p>
+
+</div>
+
+
+<div class="value">
+
+<div class="icon">🔐</div>
+
+<h3>Security</h3>
+
+<p>
+Enterprise operations require visibility, protection
+and security-focused management.
+</p>
+
+</div>
+
+
+<div class="value">
+
+<div class="icon">📊</div>
+
+<h3>Intelligence</h3>
+
+<p>
+Turn business information into useful insights for
+executives and operational teams.
+</p>
+
+</div>
+
+
+<div class="value">
+
+<div class="icon">🌎</div>
+
+<h3>Scalability</h3>
+
+<p>
+Designed as a platform concept that can grow with
+organizations and their changing requirements.
+</p>
+
+</div>
+
+
+<div class="value">
+
+<div class="icon">🏢</div>
+
+<h3>Enterprise Ready</h3>
+
+<p>
+Built around enterprise workflows including finance,
+CRM, workforce, projects and security.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- PLATFORM -->
+
+<section>
+
+<div class="container">
+
+<div class="section-title">
+
+<h2>
+The SHIZAZ Platform
+</h2>
+
+<p>
+A unified environment covering core enterprise functions.
+</p>
+
+</div>
+
+
+<div class="platform-grid">
+
+<div class="platform-card">
+<strong>AI Intelligence</strong>
+<span>AI-powered business assistance</span>
+</div>
+
+<div class="platform-card">
+<strong>Analytics</strong>
+<span>Business performance intelligence</span>
+</div>
+
+<div class="platform-card">
+<strong>CRM</strong>
+<span>Customer and sales management</span>
+</div>
+
+<div class="platform-card">
+<strong>Finance</strong>
+<span>Financial performance management</span>
+</div>
+
+<div class="platform-card">
+<strong>Workforce</strong>
+<span>Employee and workforce management</span>
+</div>
+
+<div class="platform-card">
+<strong>Projects</strong>
+<span>Enterprise project management</span>
+</div>
+
+<div class="platform-card">
+<strong>Security</strong>
+<span>Security operations and risk visibility</span>
+</div>
+
+<div class="platform-card">
+<strong>Reports</strong>
+<span>Executive and operational reporting</span>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- CTA -->
+
+<section class="cta">
+
+<div class="container">
+
+<h2>
+Explore the SHIZAZ Enterprise AI Platform
+</h2>
+
+<p>
+See how an intelligent enterprise environment can be
+customized around your organization's requirements.
+</p>
+
+<a href="request-demo.html" class="btn">
+Request Enterprise Demo
+</a>
+
+</div>
+
+</section>
+
+
+<footer>
+
+<div class="container footer-inner">
+
+<div>
+© 2026 SHIZAZ Enterprise AI. All rights reserved.
+</div>
+
+<div>
+Enterprise Intelligence • AI • Automation
+</div>
+
+</div>
+
+</footer>
+
+</body>
+</html>
