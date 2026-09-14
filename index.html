@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SHIZAZ Enterprise AI</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#07111f;
+    color:white;
+}
+
+nav{
+    height:75px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 7%;
+    border-bottom:1px solid #1d3045;
+    background:#07111f;
+}
+
+.logo{
+    font-size:24px;
+    font-weight:bold;
+    letter-spacing:1px;
+}
+
+.logo span{
+    color:#36b9ff;
+}
+
+nav a{
+    color:#b9c7d8;
+    text-decoration:none;
+    margin-left:28px;
+    font-size:14px;
+}
+
+.demo-btn{
+    background:#168cff;
+    color:white;
+    padding:12px 20px;
+    border-radius:8px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.hero{
+    min-height:680px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:50px;
+    padding:80px 7%;
+}
+
+.hero-left{
+    max-width:650px;
+}
+
+.badge{
+    display:inline-block;
+    border:1px solid #21496b;
+    background:#0c1d31;
+    color:#54c7ff;
+    padding:9px 15px;
+    border-radius:30px;
+    font-size:13px;
+    margin-bottom:25px;
+}
+
+h1{
+    font-size:58px;
+    line-height:1.08;
+    margin-bottom:25px;
+}
+
+h1 span{
+    color:#38baff;
+}
+
+.hero p{
+    color:#a9b8c9;
+    font-size:18px;
+    line-height:1.7;
+    margin-bottom:35px;
+}
+
+.buttons{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.primary{
+    background:#168cff;
+    color:white;
+    padding:15px 24px;
+    border-radius:8px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.secondary{
+    border:1px solid #31506b;
+    color:white;
+    padding:15px 24px;
+    border-radius:8px;
+    text-decoration:none;
+}
+
+.dashboard{
+    width:480px;
+    background:#0c1929;
+    border:1px solid #20384f;
+    border-radius:18px;
+    padding:22px;
+    box-shadow:0 20px 70px rgba(0,0,0,.4);
+}
+
+.dash-top{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:25px;
+}
+
+.dash-title{
+    font-weight:bold;
+}
+
+.status{
+    color:#54e6a3;
+    font-size:12px;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
+}
+
+.card{
+    background:#101f31;
+    border:1px solid #1d354c;
+    padding:20px;
+    border-radius:12px;
+}
+
+.card small{
+    color:#8295aa;
+}
+
+.card h2{
+    margin-top:10px;
+}
+
+.chart{
+    margin-top:15px;
+    height:130px;
+    background:linear-gradient(135deg,#10283c,#0b1726);
+    border-radius:12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#38baff;
+    font-size:14px;
+}
+
+section{
+    padding:80px 7%;
+}
+
+.section-title{
+    text-align:center;
+    max-width:700px;
+    margin:auto;
+}
+
+.section-title h2{
+    font-size:38px;
+    margin-bottom:15px;
+}
+
+.section-title p{
+    color:#91a3b6;
+    line-height:1.6;
+}
+
+.features{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+    margin-top:50px;
+}
+
+.feature{
+    background:#0c1929;
+    border:1px solid #1d3045;
+    border-radius:14px;
+    padding:28px;
+}
+
+.feature-icon{
+    font-size:30px;
+    margin-bottom:18px;
+}
+
+.feature h3{
+    margin-bottom:12px;
+}
+
+.feature p{
+    color:#91a3b6;
+    line-height:1.6;
+}
+
+.cta{
+    margin:50px 7% 80px;
+    padding:60px 30px;
+    text-align:center;
+    border:1px solid #1f4563;
+    border-radius:20px;
+    background:#0b1c2e;
+}
+
+.cta h2{
+    font-size:40px;
+    margin-bottom:15px;
+}
+
+.cta p{
+    color:#9caec1;
+    margin-bottom:25px;
+}
+
+footer{
+    border-top:1px solid #1d3045;
+    padding:30px 7%;
+    text-align:center;
+    color:#718398;
+}
+
+@media(max-width:900px){
+
+    nav{
+        padding:0 5%;
+    }
+
+    nav div:nth-child(2){
+        display:none;
+    }
+
+    .hero{
+        flex-direction:column;
+        padding:60px 5%;
+    }
+
+    h1{
+        font-size:43px;
+    }
+
+    .dashboard{
+        width:100%;
+    }
+
+    .features{
+        grid-template-columns:1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+
+<div class="logo">
+SHIZAZ <span>Enterprise AI</span>
+</div>
+
+<div>
+<a href="#platform">Platform</a>
+<a href="#solutions">Solutions</a>
+<a href="#ai">AI</a>
+<a href="#contact">Contact</a>
+</div>
+
+<a class="demo-btn" href="request-demo.html">
+Request Demo
+</a>
+
+</nav>
+
+
+<section class="hero">
+
+<div class="hero-left">
+
+<div class="badge">
+AI-POWERED ENTERPRISE PLATFORM
+</div>
+
+<h1>
+Run Your Enterprise With <span>Intelligence.</span>
+</h1>
+
+<p>
+SHIZAZ Enterprise AI brings business operations,
+analytics, automation, security and artificial intelligence
+together in one powerful enterprise platform.
+</p>
+
+<div class="buttons">
+
+<a class="primary" href="request-demo.html">
+Request Enterprise Demo
+</a>
+
+<a class="secondary" href="#platform">
+Explore Platform
+</a>
+
+</div>
+
+</div>
+
+
+<div class="dashboard">
+
+<div class="dash-top">
+
+<div class="dash-title">
+Enterprise Overview
+</div>
+
+<div class="status">
+● Systems Operational
+</div>
+
+</div>
+
+<div class="cards">
+
+<div class="card">
+<small>Revenue</small>
+<h2>$24.8M</h2>
+</div>
+
+<div class="card">
+<small>Active Projects</small>
+<h2>148</h2>
+</div>
+
+<div class="card">
+<small>Employees</small>
+<h2>3,842</h2>
+</div>
+
+<div class="card">
+<small>AI Automations</small>
+<h2>1,284</h2>
+</div>
+
+</div>
+
+<div class="chart">
+AI BUSINESS ANALYTICS
+</div>
+
+</div>
+
+</section>
+
+
+<section id="platform">
+
+<div class="section-title">
+
+<h2>One Platform. Every Business Operation.</h2>
+
+<p>
+Connect your teams, data and business processes
+inside one intelligent enterprise environment.
+</p>
+
+</div>
+
+
+<div class="features">
+
+<div class="feature">
+
+<div class="feature-icon">🤖</div>
+
+<h3>AI Intelligence</h3>
+
+<p>
+AI-powered insights, automation and decision support
+for enterprise leaders.
+</p>
+
+</div>
+
+
+<div class="feature">
+
+<div class="feature-icon">📊</div>
+
+<h3>Business Analytics</h3>
+
+<p>
+Monitor revenue, performance, operations and
+critical business metrics in real time.
+</p>
+
+</div>
+
+
+<div class="feature">
+
+<div class="feature-icon">👥</div>
+
+<h3>Enterprise Management</h3>
+
+<p>
+Manage employees, departments, projects and
+organizational operations from one platform.
+</p>
+
+</div>
+
+
+<div class="feature">
+
+<div class="feature-icon">💰</div>
+
+<h3>Financial Operations</h3>
+
+<p>
+Track revenue, expenses, budgets, invoices and
+financial performance.
+</p>
+
+</div>
+
+
+<div class="feature">
+
+<div class="feature-icon">🔐</div>
+
+<h3>Enterprise Security</h3>
+
+<p>
+Centralized security controls, access management
+and enterprise monitoring.
+</p>
+
+</div>
+
+
+<div class="feature">
+
+<div class="feature-icon">⚡</div>
+
+<h3>Automation</h3>
+
+<p>
+Automate repetitive workflows and allow your teams
+to focus on higher-value work.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section id="ai">
+
+<div class="section-title">
+
+<h2>AI Built For Enterprise Decisions</h2>
+
+<p>
+Turn complex business data into actionable intelligence
+with an AI-powered operating layer.
+</p>
+
+</div>
+
+</section>
+
+
+<div class="cta" id="contact">
+
+<h2>Build Your Enterprise AI System</h2>
+
+<p>
+Request a private demonstration of SHIZAZ Enterprise AI.
+</p>
+
+<a class="primary" href="request-demo.html">
+Request Enterprise Demo
+</a>
+
+</div>
+
+
+<footer>
+
+© 2026 SHIZAZ Enterprise AI. All rights reserved.
+
+</footer>
+
+</body>
+</html>
