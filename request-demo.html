@@ -112,6 +112,32 @@ button:hover{
     background:#1d4ed8;
 }
 
+.whatsapp{
+    display:block;
+    width:100%;
+    margin-bottom:25px;
+    padding:15px;
+    background:#25D366;
+    color:white;
+    text-align:center;
+    text-decoration:none;
+    border-radius:10px;
+    font-size:16px;
+    font-weight:bold;
+}
+
+.whatsapp:hover{
+    background:#1ebe5d;
+}
+
+.whatsapp-text{
+    text-align:center;
+    color:#94a3b8;
+    font-size:13px;
+    margin-top:-15px;
+    margin-bottom:20px;
+}
+
 .back{
     display:block;
     text-align:center;
@@ -143,16 +169,24 @@ button:hover{
             We can prepare a customized enterprise solution.
         </p>
 
+        <!-- WhatsApp -->
+        <a
+            href="https://wa.me/93789155454"
+            target="_blank"
+            class="whatsapp"
+        >
+            💬 Contact Us on WhatsApp
+        </a>
+
+        <p class="whatsapp-text">
+            Have a quick question? Chat with us directly on WhatsApp.
+        </p>
+
+        <!-- Formspree Form -->
         <form
             action="https://formspree.io/f/mzeblyqb"
             method="POST"
         >
-
-            <input
-                type="hidden"
-                name="_next"
-                value="https://anmt3878-rgb.github.io/shizaz-enterprise/thank-you.html"
-            >
 
             <input
                 type="hidden"
@@ -161,6 +195,7 @@ button:hover{
             >
 
             <label>Full Name</label>
+
             <input
                 type="text"
                 name="name"
@@ -169,6 +204,7 @@ button:hover{
             >
 
             <label>Company Name</label>
+
             <input
                 type="text"
                 name="company"
@@ -177,6 +213,7 @@ button:hover{
             >
 
             <label>Business Email</label>
+
             <input
                 type="email"
                 name="email"
@@ -185,28 +222,75 @@ button:hover{
             >
 
             <label>Company Size</label>
+
             <select name="company_size" required>
-                <option value="">Select company size</option>
-                <option>1 - 50 employees</option>
-                <option>51 - 200 employees</option>
-                <option>201 - 1,000 employees</option>
-                <option>1,001 - 10,000 employees</option>
-                <option>10,000+ employees</option>
+
+                <option value="">
+                    Select company size
+                </option>
+
+                <option>
+                    1 - 50 employees
+                </option>
+
+                <option>
+                    51 - 200 employees
+                </option>
+
+                <option>
+                    201 - 1,000 employees
+                </option>
+
+                <option>
+                    1,001 - 10,000 employees
+                </option>
+
+                <option>
+                    10,000+ employees
+                </option>
+
             </select>
 
             <label>What are you interested in?</label>
+
             <select name="solution" required>
-                <option value="">Select a solution</option>
-                <option>Enterprise AI Platform</option>
-                <option>Business Management Platform</option>
-                <option>AI Automation</option>
-                <option>CRM & Sales</option>
-                <option>Financial Management</option>
-                <option>Cybersecurity</option>
-                <option>Custom Enterprise Platform</option>
+
+                <option value="">
+                    Select a solution
+                </option>
+
+                <option>
+                    Enterprise AI Platform
+                </option>
+
+                <option>
+                    Business Management Platform
+                </option>
+
+                <option>
+                    AI Automation
+                </option>
+
+                <option>
+                    CRM & Sales
+                </option>
+
+                <option>
+                    Financial Management
+                </option>
+
+                <option>
+                    Cybersecurity
+                </option>
+
+                <option>
+                    Custom Enterprise Platform
+                </option>
+
             </select>
 
             <label>Project Details</label>
+
             <textarea
                 name="project_details"
                 placeholder="Tell us briefly what you need..."
